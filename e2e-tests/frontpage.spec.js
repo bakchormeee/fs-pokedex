@@ -10,4 +10,11 @@ describe("Pokedex", () => {
       ),
     ).toBeVisible();
   });
+
+  test("can navigate from pokemon page to home page", async ({ page }) => {
+    await page.goto("http://localhost:8080/pokemon/venusaur");
+    await expect(page.getByText("chlorophyll")).toBeVisible();
+    await page.getByRole("link", { name: "Home" }).click();
+    await expect(page.getByText("ivysaur")).toBeVisible();
+  });
 });
