@@ -37,7 +37,7 @@ jobs:
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
-    if: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
+    if: ${{ !contains(join(github.event.commits.*.message, ' '), '#skip') }}
     steps:
       - uses: actions/checkout@v6
         with:

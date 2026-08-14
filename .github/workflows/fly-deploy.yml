@@ -10,7 +10,7 @@ jobs:
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
-    if: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
+    if: ${{ !contains(join(github.event.commits.*.message, ' '), '#skip') }}
     concurrency: deploy-group # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
