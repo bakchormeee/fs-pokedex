@@ -11,11 +11,11 @@ app.get("/version", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-  res.send("nah");
+  res.send("ok");
 });
 
 const start = async () => {
-  await app.listen(PORT);
+  await app.listen(PORT + 1);
   console.log(`server started on port ${PORT}`);
 };
 
